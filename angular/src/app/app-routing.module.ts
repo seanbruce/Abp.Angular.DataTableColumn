@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { indentityEntityPropContributor } from './entity-prop-contributors';
 
 const routes: Routes = [
   {
@@ -13,7 +14,10 @@ const routes: Routes = [
   },
   {
     path: 'identity',
-    loadChildren: () => import('@abp/ng.identity').then(m => m.IdentityModule.forLazy()),
+    loadChildren: () =>
+      import('@abp/ng.identity').then(m =>
+        m.IdentityModule.forLazy({ entityPropContributors: indentityEntityPropContributor })
+      ),
   },
   {
     path: 'tenant-management',
